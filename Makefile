@@ -26,4 +26,9 @@ lint:
 
 .PHONY: build
 build: clean test lint
+	go build -a -installsuffix cgo -o ${NAME} ./cmd
+
+
+.PHONY: dockerbuild
+dockerbuild: clean test lint
 	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} .
