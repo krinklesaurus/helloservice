@@ -4,6 +4,11 @@ VERSION=$(shell git rev-parse --short HEAD)
 
 default: build
 
+.PHONY: init
+init:
+	dep ensure
+
+
 .PHONY: clean
 clean:
 	@if [ -f ${NAME} ] ; then rm ${NAME}; fi
@@ -26,4 +31,19 @@ lint:
 
 .PHONY: build
 build: clean test lint
+	go build -a -installsuffix cgo -o ${NAME} ./cmd
+
+
+.PHONY: run
+run: 
+	./${NAME}
+	
+
+.PHONY: dockerbuild
+dockerbuild: clean test lint
 	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} .
+
+
+.PHONY: dockerrun
+dockerrun:
+	docker run -p 8080:8080 ${NAME}:${VERSION}

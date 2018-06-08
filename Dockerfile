@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.8.3
+FROM golang:1.10.2
 
 WORKDIR /go/src/github.com/krinklesaurus/helloservice
 
