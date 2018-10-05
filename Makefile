@@ -6,7 +6,7 @@ default: build
 
 .PHONY: init
 init:
-	dep ensure
+	go mod vendor
 
 
 .PHONY: clean
