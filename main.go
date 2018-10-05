@@ -5,21 +5,20 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	app "github.com/krinklesaurus/helloservice"
+	"github.com/krinklesaurus/helloservice/hello"
 	"github.com/krinklesaurus/helloservice/log"
 	negronilogrus "github.com/meatballhat/negroni-logrus"
 	uuid "github.com/satori/go.uuid"
 	"github.com/urfave/negroni"
 )
 
-// Struct from the app package
-var hello *app.Hello
+var h *hello.Hello
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	if hello == nil {
-		hello = &app.Hello{uuid.NewV4().String()}
+	if h == nil {
+		h = &hello.Hello{uuid.NewV4().String()}
 	}
-	fmt.Fprintf(w, "Hi there with love from %v!", hello.Name)
+	fmt.Fprintf(w, "Hi there with love from %v!", h.Name)
 }
 
 func main() {

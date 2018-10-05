@@ -1,4 +1,4 @@
-package app
+package hello
 
 type Hello struct {
 	Name string

@@ -31,7 +31,7 @@ lint:
 
 .PHONY: build
 build: clean test lint
-	go build -a -installsuffix cgo -o ${NAME} ./cmd
+	go build -a -installsuffix cgo -o ${NAME} .
 
 
 .PHONY: run

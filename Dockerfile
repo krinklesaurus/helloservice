@@ -8,7 +8,7 @@ COPY . .
 RUN go get -u github.com/golang/dep/cmd/dep \
     && dep ensure
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o helloservice ./cmd
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o helloservice .
 
 # final stage
 FROM alpine:3.6
