@@ -2,49 +2,25 @@ SOURCEDIR = .
 NAME ?= helloservice
 VERSION=$(shell git rev-parse --short HEAD)
 
-default: build
-
-.PHONY: init
-init:
-	go mod vendor
-
+default: clean build
 
 .PHONY: clean
 clean:
-	@if [ -f ${NAME} ] ; then rm ${NAME}; fi
-
+	@rm -rf ${NAME}
 
 .PHONY: test
 test:
-	go test -v -race -cover $$(go list ./... | grep -v /vendor/)
-
-
-.PHONY: vet
-vet:
-	go vet -v $(go list ./... | grep -v /vendor/)
-
-
-.PHONY: lint
-lint:
-	golint $$(go list ./... | grep -v /vendor/)
-
-
-.PHONY: build
-build: clean test lint
-	go build -a -installsuffix cgo -o ${NAME} .
-
+	golint $$(go list ./... | grep -v /vendor/) &&\
+		go test -v -race -cover $$(go list ./... | grep -v /vendor/)
 
 .PHONY: run
-run: 
-	./${NAME}
-	
+run:
+	go run main.go
 
-.PHONY: dockerbuild
-dockerbuild: clean test lint
+.PHONY: build
+build:
 	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} .
 
-
-.PHONY: dockerrun
-dockerrun:
-	docker run -p 8080:8080 ${NAME}:${VERSION}
-
+.PHONY: push
+push:
+	docker push krinklesaurus/helloservice:${VERSION}

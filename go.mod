@@ -1,5 +1,7 @@
 module github.com/krinklesaurus/helloservice
 
+go 1.14
+
 require (
 	9fans.net/go v0.0.0-20180727211846-5d4fa602e1e8 // indirect
 	github.com/acroca/go-symbols v0.0.0-20180523203557-953befd75e22 // indirect
