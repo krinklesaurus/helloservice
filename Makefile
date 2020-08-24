@@ -19,7 +19,7 @@ run:
 
 .PHONY: build
 build:
-	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} .
+	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} -t krinklesaurus/${NAME}:${VERSION} .
 
 .PHONY: push
 push:

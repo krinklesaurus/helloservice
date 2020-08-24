@@ -1,14 +1,20 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: test-ingress
-  namespace: test
+  name: hello-ingress
+  namespace: hello
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-issuer"
 spec:
+  tls:
+  - hosts:
+    - hello.krinklesaurus.me
+    secretName: hello-cert-tls
   rules:
-  - http:
+  - host: hello.krinklesaurus.me
+    http:
       paths:
       - path: /
         pathType: Prefix

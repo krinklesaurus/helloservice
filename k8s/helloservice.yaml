@@ -4,7 +4,7 @@ metadata:
   labels:
     app: helloservice
   name: helloservice
-  namespace: test
+  namespace: hello
 spec:
   ports:
   - name: "8080"
@@ -21,7 +21,7 @@ metadata:
   labels:
     app: helloservice
   name: helloservice
-  namespace: test
+  namespace: hello
 spec:
   replicas: 2
   selector:
