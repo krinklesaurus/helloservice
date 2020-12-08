@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.14.7-alpine3.12
+FROM golang:1.15.6-alpine3.12
 
 RUN apk update && apk add --no-cache git ca-certificates tzdata build-base && update-ca-certificates
 
