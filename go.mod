@@ -14,7 +14,7 @@ require (
 	github.com/nsf/gocode v0.0.0-20180902125341-7b1d4e18cdc5 // indirect
 	github.com/ramya-rao-a/go-outline v0.0.0-20170803230019-9e9d089bb61a // indirect
 	github.com/rogpeppe/godef v1.0.0 // indirect
-	github.com/satori/go.uuid v1.1.0
+	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.0.4
 	github.com/sqs/goreturns v0.0.0-20180302073349-83e02874ec12 // indirect
 	github.com/tpng/gopkgs v0.0.0-20180428091733-81e90e22e204 // indirect
