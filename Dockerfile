@@ -10,7 +10,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o helloservice .
 
 # final stage
-FROM alpine:3.12
+FROM alpine:3.13
 
 WORKDIR /
 
