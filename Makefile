@@ -19,8 +19,9 @@ run:
 
 .PHONY: build
 build:
-	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} -t krinklesaurus/${NAME}:${VERSION} .
+	docker build -t ${NAME}:latest -t ${NAME}:${VERSION} -t krinklesaurus/${NAME}:${VERSION} -t krinklesaurus/${NAME}:latest .
 
 .PHONY: push
 push:
-	docker push krinklesaurus/helloservice:${VERSION}
+	docker push krinklesaurus/helloservice:latest &&\
+		docker push krinklesaurus/helloservice:${VERSION}
