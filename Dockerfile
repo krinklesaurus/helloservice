@@ -12,7 +12,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o helloservice .
 
 # final stage
-FROM alpine:3.14
+FROM alpine:3.19
 
 RUN apk upgrade --update-cache
 
