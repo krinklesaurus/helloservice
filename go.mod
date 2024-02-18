@@ -8,6 +8,7 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/negroni v1.0.0
+	github.com/urfave/negroni/v3 v3.1.0
 	golang.org/x/sys v0.0.0-20220111092808-5a964db01320 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
